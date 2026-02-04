@@ -6,6 +6,7 @@ This project is a cross-platform mobile application (Android and iOS) developed 
 The application was initially designed as an MVP, focusing on usability, clarity, and scalability, with room for future improvements as the business grows.
 
 🚀 Key Features
+
 🔐 Authentication and User Roles
 
 User login system
