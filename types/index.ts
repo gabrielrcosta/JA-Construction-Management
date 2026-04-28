@@ -1,7 +1,6 @@
 // types/index.ts
 
 // A material is a physical item stored on the construction site
-// (e.g. cement bags, steel rods, paint cans)
 export type Category = "Concreto" | "Metal" | "Madeira" | "Eletrica" | "Hidraulica" | "Seguranca";
 
 export interface Material {
