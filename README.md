@@ -1,53 +1,59 @@
-# JA-Construction-Management
+# JA Construction Management App
 
-📱 Inventory and Expense Management – Mobile App
+A cross-platform mobile app (Android & iOS) for inventory and expense management.
 
-This project is a cross-platform mobile application (Android and iOS) developed using React Native with Expo, designed to help a small business manage inventory control and external operational expenses in a simple and efficient way.
-The application was initially designed as an MVP, focusing on usability, clarity, and scalability, with room for future improvements as the business grows.
+Built with **React Native + Expo**.
 
-🚀 Key Features
+## Tech Stack
 
-🔐 Authentication and User Roles
+- React Native + Expo
+- TypeScript
+- Expo Router (file-based navigation)
+- NativeWind (Tailwind CSS for React Native)
+- expo-secure-store (secure session storage)
 
-User login system
-Role-based access:
-  Employee
-  Administrator
-Permission control based on user roles
+## Project Structure
 
-📦 Inventory Management
+```
+app/
+  _layout.tsx          ← root layout: auth check + providers
+  (auth)/
+    login.tsx          ← login screen
+  (employee)/
+    _layout.tsx        ← employee tab bar
+    inventory.tsx      ← browse materials, submit requests
+    expenses.tsx       ← submit expenses + receipts
+    profile.tsx        ← profile + logout
+  (admin)/
+    _layout.tsx        ← admin tab bar
+    dashboard.tsx      ← overview + stats
+    approvals.tsx      ← approve/reject requests
+    materials.tsx      ← manage material catalogue
+    profile.tsx        ← profile + logout
 
-List of available materials
-Material withdrawal requests submitted by employees
-Approval or rejection of requests by administrators
-Automatic inventory updates after approval
-Inventory movement history
-Material creation and management (admin only)
+context/
+  AuthContext.tsx      ← global auth state (user, role, login, logout)
 
-💰 Field Expense Management
+components/            ← shared UI components
+services/              ← backend API calls (Firebase/Supabase when ready)
+```
 
-Registration of external expenses (e.g. fuel, meals, site visits)
-Receipt upload (photos or documents)
-Submission of expenses for management approval
-Expense status tracking (pending, approved, rejected)
-Foundation for reimbursement and financial control
+## Getting Started
 
-🛠️ Tech Stack
+```bash
+npm install
+npx expo start
+```
 
-React Native
-Expo
-JavaScript / TypeScript
-Android Studio (emulator)
-VS Code
-Backend and database (to be defined)
+Scan the QR code with **Expo Go** on your phone.
 
-🎯 Project Goals
+## Current Status
 
-Centralize inventory and expense management in a single mobile app
-Reduce manual processes and operational errors
-Improve transparency and internal control
-Provide a scalable foundation for future financial and management features
+🚧 MVP in progress
 
-📌 Project Status
-
-🚧 Work in progress (MVP)
+- [x] Project structure
+- [x] Authentication flow (mock)
+- [x] Role-based navigation (employee / admin)
+- [ ] Inventory module
+- [ ] Expenses module
+- [ ] Backend integration (Firebase / Supabase)
