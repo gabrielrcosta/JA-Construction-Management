@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JA Construction Sign In</title>
+
+        <!--Styles-->
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/login.css">
+    </head>
+
+    <body class="login-page">
+        <div class="login-card">
+            <!--Brand-->
+            <div class="brand">
+                <div class="brand__badge">
+                    <div class="brand__badge-dot"></div>
+                    <span class="brand__badge-text">Field Management System</span>
+                </div>
+                <div class="brand__name"><em>JA</em> Construction</div>
+                <div class="brand__sub">Operations Platform</div>
+            </div>
+            <!--Form-->
+            <form class="login-form" id="login-form" novalidate>
+                <h1 class="login-form__title">Sign In</h1>
+
+                <!--Error Banner-->
+                <div class="error-banner" id="error-banner" role="alert" hidden>
+                    <span class="error-banner__icon">&#9888;</span>
+                    <span id="error-msg"></span>
+                </div>
+
+                <!--Email-->
+                <div class="field">
+                    <label class="field__label" for="email">Email address</label>
+                    <div class="field__input-wrap">
+                        <input 
+                            class="field__input"
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@jaconstruction.com"
+                            autocomplete="email"
+                            required>
+                    </div>
+                    <span class="field__error" id="email-error" hidden></span>
+                </div>
+                <!--Password-->
+                <div class="field">
+                    <label class="field__label" for="password">Password </label>
+                    <div class="field__input-wrap">
+                        <input 
+                            class="field__input field__input--with-toggle"
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="********"
+                            autocomplete="current-password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="field__toggle"
+                            id="password-toggle"
+                            aria-label="show password">
+                            
+                            <svg 
+                                width="16" 
+                                height="16" 
+                                viewBox="0 0 24 24" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                stroke-width="2" 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round">
+
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+                                <circle 
+                                    cx="12"
+                                    cy="12"
+                                    r="3"/>
+                            </svg>
+                        </button>    
+                    </div>
+                </div>
+                <!--Forgot Password-->
+                <div class="forgot-row">
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <!--Role selector-->
+                <div class="divider">Sign in as</div>
+
+                <div class="role-pills">
+                    <button type="button" class="role-pill role-pill--active" data-role="employee">
+                        <div class="role-pill__icon">&#129686;</div>
+                        <div class="role-pill__label">Employee</div>
+                    </button>
+                    <button type="button" class="role-pill" data-role="admin">
+                        <div class="role-pill__icon">&#128273;</div>
+                        <div class="role-pill__label">Admin</div>
+                    </button>
+                </div>
+
+                <!--Submit-->
+                <button type="submit" class="btn-login" id="submit-btn">
+                    <span class="spinner"></span>
+                    <span class="btn-login__text" id="btn-text">Sign in as Employee</span>
+                </button>
+
+            </form>
+
+            <p class="login-footer">Need access? Contact your site administrator.</p>
+
+        </div>
+
+        <!--Scripts-->
+        <script src="js/login.js"></script>
+    </body>
+</html>

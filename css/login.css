@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+/* ── Page ── */
+.login-page {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* diagonal stripe texture */
+.login-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 60px,
+    rgba(245, 158, 11, 0.018) 60px,
+    rgba(245, 158, 11, 0.018) 61px
+  );
+  pointer-events: none;
+}
+
+/* top accent bar */
+.login-page::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber) 0%, transparent 100%);
+}
+
+/* ── Card ── */
+.login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  animation: slideUp var(--transition-bounce) both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Brand ── */
+.brand {
+  margin-bottom: var(--space-8);
+}
+
+.brand__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--amber-dim);
+  border: 1px solid var(--amber-border);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  margin-bottom: var(--space-3);
+}
+
+.brand__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 6px var(--amber);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+.brand__badge-text {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.brand__name em {
+  font-style: normal;
+  color: var(--amber);
+}
+
+.brand__sub {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+/* ── Form surface ── */
+.login-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.login-form__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: var(--space-5);
+}
+
+/* ── Error banner ── */
+.error-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--red-dim);
+  border: 1px solid var(--red-border);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #fca5a5;
+  margin-bottom: var(--space-4);
+}
+
+.error-banner__icon {
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+.error-banner[hidden] {
+  display: none;
+}
+
+/* ── Field ── */
+.field {
+  margin-bottom: var(--space-4);
+}
+
+.field__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 7px;
+}
+
+.field__input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field__input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 11px 12px;
+  font-size: 15px;
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.field__input::placeholder {
+  color: var(--text-faint);
+}
+
+.field__input:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px var(--amber-dim);
+}
+
+.field__input--with-toggle {
+  padding-right: 44px;
+}
+
+.field__input--error {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px var(--red-dim);
+}
+
+.field__error {
+  font-size: 12px;
+  color: var(--red);
+  margin-top: 5px;
+}
+
+.field__error[hidden] {
+  display: none;
+}
+
+/* password toggle */
+.field__toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: var(--space-1);
+  line-height: 0;
+  transition: color var(--transition);
+}
+
+.field__toggle:hover {
+  color: var(--text);
+}
+
+/* ── Forgot link ── */
+.forgot-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-5);
+}
+
+.forgot-link {
+  font-size: 12px;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.forgot-link:hover {
+  color: var(--amber);
+}
+
+/* ── Divider ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  color: var(--text-muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Role pills ── */
+.role-pills {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.role-pill {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-2);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.role-pill:hover {
+  border-color: var(--border-2);
+}
+
+.role-pill--active {
+  border-color: var(--amber);
+  background: var(--amber-dim);
+}
+
+.role-pill__icon {
+  font-size: 20px;
+  margin-bottom: var(--space-1);
+}
+
+.role-pill__label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.role-pill--active .role-pill__label {
+  color: var(--amber);
+}
+
+/* ── Submit button ── */
+.btn-login {
+  width: 100%;
+  background: var(--amber);
+  border-radius: var(--radius);
+  padding: 13px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0f1012;
+  transition: background var(--transition), transform 0.1s, box-shadow var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+}
+
+.btn-login:hover:not(:disabled) {
+  background: var(--amber-hover);
+  box-shadow: var(--shadow-amber);
+  transform: translateY(-1px);
+}
+
+.btn-login:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-login:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* spinner inside button */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-top-color: #0f1012;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: none;
+}
+
+.btn-login--loading .spinner {
+  display: block;
+}
+
+.btn-login--loading .btn-login__text {
+  display: none;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Footer ── */
+.login-footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: var(--space-5);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .login-page {
+    padding: var(--space-4);
+    align-items: flex-start;
+    padding-top: 60px;
+  }
+
+  .brand__name {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JA Construction — Inventory</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/inventory.css">
+</head>
+<body class="app-page">
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar__logo"><em>JA</em> Construction</div>
+    <div class="topbar__right">
+      <span class="topbar__role-badge">Employee</span>
+      <div class="topbar__user">
+        <div class="topbar__avatar" id="topbar-avatar">C</div>
+        <span class="topbar__username" id="topbar-username">Carlos</span>
+      </div>
+      <button class="topbar__logout" id="logout-btn">Sign out</button>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="app-body">
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <span class="sidebar__section-label">Menu</span>
+      <a href="inventory.html" class="nav-item nav-item--active">
+        <span class="nav-item__icon">📦</span> Inventory
+      </a>
+      <a href="expenses.html" class="nav-item">
+        <span class="nav-item__icon">💰</span> Expenses
+      </a>
+      <a href="profile.html" class="nav-item">
+        <span class="nav-item__icon">👤</span> Profile
+      </a>
+    </nav>
+
+    <!-- Main content -->
+    <main class="main">
+
+      <!-- Page header -->
+      <div class="page-header">
+        <div class="page-header__left">
+          <h1 class="page-header__title">Inventory</h1>
+          <p class="page-header__sub">Browse materials and submit withdrawal requests</p>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="toolbar__search">
+          <span class="toolbar__search-icon">🔍</span>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search materials...">
+        </div>
+
+        <select class="toolbar__select" id="category-filter">
+          <option value="">All categories</option>
+        </select>
+
+        <select class="toolbar__select" id="status-filter">
+          <option value="">All statuses</option>
+          <option value="green">In stock</option>
+          <option value="yellow">Low stock</option>
+          <option value="red">Out of stock</option>
+        </select>
+
+        <div class="toolbar__right">
+          <span class="toolbar__count" id="material-count">— materials</span>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-wrap">
+        <table class="inv-table">
+          <thead>
+            <tr>
+              <th data-col="name">Material <span class="sort-icon">↕</span></th>
+              <th data-col="category">Category <span class="sort-icon">↕</span></th>
+              <th data-col="qty">Qty <span class="sort-icon">↕</span></th>
+              <th>Unit</th>
+              <th data-col="updated">Last updated <span class="sort-icon">↕</span></th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="inv-table-body">
+            <!-- Filled by inventory.js -->
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../../js/inventory.js"></script>
+
+</body>
+</html>
